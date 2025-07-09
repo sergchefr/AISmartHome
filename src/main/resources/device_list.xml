@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<devices>
+    <device>
+        <category>lights</category>
+        <name>table_lamp</name>
+        <location>моя комната, стол</location>
+    </device>
+    <device>
+        <category>lights</category>
+        <name>main_lights</name>
+        <location>потолок, моя комната</location>
+    </device>
+    <device>
+        <category>lights</category>
+        <name>kithen_lights</name>
+        <location>потолок, кухня</location>
+    </device>
+    <device>
+        <category>curtains</category>
+        <name>left_cuirtain</name>
+        <location>левая занавеска в моей комнате</location>
+    </device>
+    <device>
+        <category>curtains</category>
+        <name>right_cuirtain</name>
+        <location>правая занавеска в моей комнате</location>
+    </device>
+    <device>
+        <category>teapot</category>
+        <name>kitchen_teapot</name>
+        <location>кухня</location>
+    </device>
+</devices>

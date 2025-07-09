@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+    <commands>
+        <command>
+            <name>lights</name>
+            <description>позволяет управлять освещением.</description>
+            <parameters>
+                <parameter>
+                    <name>device_name</name>
+                    <description>указание на имя устройства, которым управляют. Должно совпадать с одним из имен доступных устройств.</description>
+                    <limitation>String</limitation>
+                </parameter>
+                <parameter>
+                    <name>brightness</name>
+                    <description>устанавливает яркость освещения. Если запрашивается просто включение устанавливать 100, выключение 0</description>
+                    <limitation>int:[0;100]</limitation>
+                </parameter>
+                <parameter>
+                    <name>delay</name>
+                    <description>задержка в секундах через которую произойдет событие, максимум 12 часов. Если должно произойти сейчас указать значение 0</description>
+                    <limitation>int:[0;43200]</limitation>
+                </parameter>
+            </parameters>
+        </command>
+        <command>
+            <name>curtains</name>
+            <description>открывает или закрывает занавески на определенный процент</description>
+            <parameters>
+                <parameter>
+                    <name>device_name</name>
+                    <description>указание на имя устройства, которым управляют. Должно совпадать с одним из имен доступных устройств.</description>
+                    <limitation>String</limitation>
+                </parameter>
+                <parameter>
+                    <name>percentage</name>
+                    <description>процент, на который открываются шторы. Если запрашивается просто открытие устанавливать 100, закрытие 0</description>
+                    <limitation>int:[0;100]</limitation>
+                </parameter>
+            </parameters>
+        </command>
+        <command>
+            <name>teapot</name>
+            <description>может включить чайник</description>
+            <parameters>
+                <parameter>
+                        <name>device_name</name>
+                        <description>указание на имя устройства, которым управляют. Должно совпадать с одним из имен доступных устройств.</description>
+                        <limitation>String</limitation>
+                </parameter>
+                <parameter>
+                    <name>delay</name>
+                    <description>задержка в секундах через которую произойдет событие, максимум 12 часов. Если должно произойти сейчас указать значение 0</description>
+                    <limitation>int:[0;43200]</limitation>
+                </parameter>
+            </parameters>
+        </command>
+    </commands>
+</data>
