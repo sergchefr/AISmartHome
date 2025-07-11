@@ -1,10 +1,10 @@
 package ru.ifmo.neuro;
 
-public class NeuroManager {
-    private static NeuroManager instance;
+public class NeuroController {
+    private static NeuroController instance;
     private NeuroCommGetter ai;
 
-    private NeuroManager(){
+    private NeuroController(){
         ai = new Mistral();
         reloadSystemPrompt();
         System.out.println();
@@ -12,6 +12,8 @@ public class NeuroManager {
 
     public String getCommand(String input)throws RecognitionException {
         String ans = ai.getStringCommand(input);
+        System.out.println(ans);
+        System.out.println("");
         if (ans.equals("ERROR"))throw new RecognitionException(input);
         return ans;
     }
@@ -22,8 +24,8 @@ public class NeuroManager {
     }
 
 
-    public static NeuroManager getInstance() {
-        if(instance == null) instance = new NeuroManager();
+    public static NeuroController getInstance() {
+        if(instance == null) instance = new NeuroController();
         return  instance;
     }
 }

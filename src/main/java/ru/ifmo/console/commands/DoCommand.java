@@ -3,7 +3,7 @@ package ru.ifmo.console.commands;
 import ru.ifmo.console.Icommand;
 import ru.ifmo.console.Parameter;
 import ru.ifmo.console.VerifierCommand;
-import ru.ifmo.neuro.NeuroManager;
+import ru.ifmo.neuro.NeuroController;
 import ru.ifmo.neuro.RecognitionException;
 
 public class DoCommand implements Icommand {
@@ -12,7 +12,7 @@ public class DoCommand implements Icommand {
 
 
         try {
-            return NeuroManager.getInstance().getCommand(command.substring(3));
+            return NeuroController.getInstance().getCommand(command.substring(3));
         } catch (RecognitionException e) {
             return "ошибка распознавания";
         }
@@ -27,6 +27,11 @@ public class DoCommand implements Icommand {
     public VerifierCommand getVerifierCommand() {
 
         return new Doverifier();
+    }
+
+    @Override
+    public String interprete(String command) {
+        return "запрос на выполнение команды: "+command;
     }
 
     private class Doverifier extends VerifierCommand{

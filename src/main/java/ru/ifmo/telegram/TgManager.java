@@ -1,6 +1,7 @@
 package ru.ifmo.telegram;
 
 import org.telegram.telegrambots.longpolling.TelegramBotsLongPollingApplication;
+import ru.ifmo.telegram.scenary.Intro;
 
 import java.util.ArrayList;
 
@@ -9,18 +10,25 @@ public class TgManager  implements TgController{
     private TgBot bot;
 
     public TgManager(String apikey) {
-        apikey = System.getenv("TG_API_KEY");
-        bot = new TgBot(System.getenv("TG_API_KEY"));
-        try (TelegramBotsLongPollingApplication application = new TelegramBotsLongPollingApplication()) {
-            application.registerBot(System.getenv("TG_API_KEY"), bot);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        this.apikey = apikey;
+        bot = new TgBot(apikey);
+        bot.setStandard_SE(new Intro(apikey));
     }
 
     @Override
-    public void sendMessage(int chatID, String message) {
-        bot.sendmsg(message, chatID);
+    public void sendMessage(int userid, String message) {
+    }
+
+    @Override
+    public void start() {
+        try (TelegramBotsLongPollingApplication application = new TelegramBotsLongPollingApplication()) {
+            application.registerBot(apikey, bot);
+
+            System.out.println("бот запущен");
+            Thread.currentThread().join();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override

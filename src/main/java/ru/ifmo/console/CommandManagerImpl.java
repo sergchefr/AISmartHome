@@ -79,6 +79,13 @@ public class CommandManagerImpl implements IcommandManager {
         return instance;
     }
 
-
-
+    @Override
+    public String getInterpretation(String command) {
+        Icommand icommand = commands.get(command.split(" ")[0].strip());
+        if(icommand==null){
+            System.err.println("ошибка распознавания команды "+command);
+            return "ошибка распознавания команды";
+        }
+        return icommand.interprete(command);
+    }
 }

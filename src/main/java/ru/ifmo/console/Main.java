@@ -1,11 +1,11 @@
 package ru.ifmo.console;
 
-import ru.ifmo.TableLampCommand;
+import ru.ifmo.LightsCommand;
 
 public class Main {
     public static void main(String[] args) {
         CommandManagerImpl commandManager = CommandManagerImpl.getInstance();
-        commandManager.addCommand(new TableLampCommand());
+        commandManager.addCommand(new LightsCommand());
         ConsoleIO.getInstance().start(commandManager);
         ConsoleIO.getInstance().print("goool");
 
@@ -18,5 +18,6 @@ public class Main {
         while (true) {
             Thread.onSpinWait();
         }
+        //TODO починить консоль! она не работает!
     }
 }
