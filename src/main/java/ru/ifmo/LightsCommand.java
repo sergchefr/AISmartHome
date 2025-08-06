@@ -27,7 +27,7 @@ public class LightsCommand implements Icommand {
     //TODO переделать команды для возможности динамического количества параметров
     public VerifierCommand getVerifierCommand() {
         return new VerifierCommandBuilder().setName(getName())
-                .addParamameter(new ParameterBuilder().setName("brightness").setDescription("устанавливает яркость освещения").setLimitations("String").getParameter())
+                .addParamameter(new ParameterBuilder().setName("brightness").setDescription("устанавливает яркость освещения").setLimitations("int:[0;100)").getParameter())
                 .addParamameter(new ParameterBuilder().setName("delay").setDescription("устанавливает задержку выполнения").setLimitations("int:[0;43200]").getParameter())
                 .addParamameter(new ParameterBuilder().setName("device_name").setDescription("имя устройства").setLimitations("String").getParameter())
                 .setDescription("позволяет управлять светом")

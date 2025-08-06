@@ -56,33 +56,33 @@ public class Acception implements ScenaryElement{
                 EditMessageText newMessage = EditMessageText.builder().messageId(toIntExact(messageid)).text(needAcc+"\n\n<b>подтверждено</b>").chatId(chatid).parseMode("html").build();
                 try {
                     telegramClient.execute(newMessage);
-                    return new Basic(api, chatid);
+                    return new AIinterpreter(api, chatid);
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
-                    return new Basic(api, chatid);
+                    return new AIinterpreter(api, chatid);
                 }
             }else if (update.getCallbackQuery().getData().equals("negotiate")){
                 int messageid = update.getCallbackQuery().getMessage().getMessageId();
                 EditMessageText newMessage = EditMessageText.builder().messageId(toIntExact(messageid)).text(needAcc+"\n\n<b>не будет выполнено</b>").parseMode("html").chatId(chatid).build();
                 try {
                     telegramClient.execute(newMessage);
-                    return new Basic(api, chatid);
+                    return new AIinterpreter(api, chatid);
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
-                    return new Basic(api, chatid);
+                    return new AIinterpreter(api, chatid);
                 }
             }else {
                 EditMessageText newMessage = EditMessageText.builder().messageId(update.getCallbackQuery().getMessage().getMessageId()).text("магии не случилось").build();
-                return new Basic(api, chatid);
+                return new AIinterpreter(api, chatid);
             }
 
         } else if (update.hasMessage()) {
             long chatid = update.getMessage().getChatId();
             try {
                 telegramClient.execute(SendMessage.builder().chatId(chatid).text("вы не выбрали опцию, команда не будет выполнена").build());
-                return new Basic(api, chatid);
+                return new AIinterpreter(api, chatid);
             } catch (TelegramApiException e) {
-                return new Basic(api, chatid);
+                return new AIinterpreter(api, chatid);
             }
         }else{
             throw new RuntimeException("ни то, ни се");

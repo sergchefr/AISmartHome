@@ -31,7 +31,7 @@ public class Login implements ScenaryElement{
             }
             if(!text.equals(pswd)){
                 telegramClient.execute(SendMessage.builder().chatId(message.getChatId()).text("круто! вы угадали!").build());
-                return new Basic(api, message.getChatId());
+                return new ModeChoice(api, message.getChatId());
             }else{
                 telegramClient.execute(SendMessage.builder().chatId(message.getChatId()).text("вы не угадали... попробуйте еще раз").build());
                 return new Login(api, rand6digit());

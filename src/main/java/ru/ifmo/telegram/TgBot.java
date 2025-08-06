@@ -23,9 +23,6 @@ public class TgBot implements LongPollingSingleThreadUpdateConsumer {
 
     @Override
     public void consume(Update update) {
-        //if (!update.hasMessage() || !update.getMessage().hasText()) return;
-
-
         long chat_id;
         if (update.hasMessage()) {
             chat_id = update.getMessage().getChatId();
@@ -34,7 +31,6 @@ public class TgBot implements LongPollingSingleThreadUpdateConsumer {
         }else{
             throw new RuntimeException("непонято что прилетело");
         }
-
 
         if(users.containsKey(chat_id)){
             users.put(chat_id,users.get(chat_id).getnext(update));

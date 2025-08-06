@@ -5,6 +5,7 @@ import ru.ifmo.telegram.scenary.Intro;
 
 public class Main {
     public static void main(String[] args){
+
         String apikey = System.getenv("TG_API_KEY");
         TgBot bot = new TgBot(apikey);
         bot.setStandard_SE(new Intro(apikey));
@@ -15,5 +16,7 @@ public class Main {
         }catch (Exception e){
             e.printStackTrace();
         }
+
     }
+
 }
